@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Expense Tracker of {{user.first_name}} {{user.last_name}}</h1>
+
+<p><a href="/add">Add Expences</a></p>
+<p><a href="/view">View all expences</a></p>
+<form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+<br>
+<form method="GET" action="{% url 'delete_account' %}">
+    <button type="submit">Delete Account</button>
+</form>
+</body>
+</html>

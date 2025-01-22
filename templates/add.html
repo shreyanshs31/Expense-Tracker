@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Records</title>
+</head>
+<body>
+<h3>ADD YOUR EXPENCES</h3><br>
+<form method="post" action="/add/">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="title" placeholder="Title"></td>
+            <td><input type="number" name="amount" placeholder="Enter the amount"></td>
+            <td><select name="category">
+                <option>Choose an option</option>
+                <option value="food">Food</option>
+                <option value="travel">Travel</option>
+                <option value="shopping">Shopping</option>
+            </select>
+            </td>
+            <td><input type="date" name="date" placeholder="Enter the date"></td>
+            <td><textarea name="notes" placeholder="Description"></textarea></td>
+        </tr>
+    </table>
+<button type="submit">Submit</button>
+</form>
+<p><a href="/index">Home Page</a></p>
+</body>
+</html>

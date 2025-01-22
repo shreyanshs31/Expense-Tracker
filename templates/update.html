@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Expense</title>
+</head>
+<body>
+    <h1>Update Expense</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+<!--                <td><input type="text" name="title" value="{{ record.title }}" placeholder="Title" required></td>-->
+<!--                <td><input type="number" name="amount" value="{{ record.amount }}" placeholder="Enter the amount" required></td>-->
+<!--                <td>-->
+<!--                    <select name="category" required>-->
+<!--                        <option value="food" {% if record.category == 'food' %}selected{% endif %}>Food</option>-->
+<!--                        <option value="travel" {% if record.category == 'travel' %}selected{% endif %}>Travel</option>-->
+<!--                        <option value="shopping" {% if record.category == 'shopping' %}selected{% endif %}>Shopping</option>-->
+<!--                    </select>-->
+<!--                </td>-->
+<!--                <td><input type="date" name="date" value="{{ record_date }}" required></td>-->
+<!--                <td><textarea name="notes" placeholder="Description" required>{{ record.notes }}</textarea></td>-->
+                    <td><input type="text" name="title" value="{{ form.title.value }}" placeholder="Title" required></td>
+                    <td><input type="number" name="amount" value="{{ form.amount.value }}" placeholder="Enter the amount" required></td>
+                    <td>
+                        <select name="category" required>
+                        <option value="food" {% if form.category.value == 'food' %}selected{% endif %}>Food</option>
+                        <option value="travel" {% if form.category.value == 'travel' %}selected{% endif %}>Travel</option>
+                        <option value="shopping" {% if form.category.value == 'shopping' %}selected{% endif %}>Shopping</option>
+                        </select>
+                    </td>
+                    <td><input type="date" name="date" value="{{ record_date }}" required></td>
+                    <td><textarea name="notes" placeholder="Description" required>{{ form.notes.value }}</textarea></td>
+            </tr>
+        </table>
+        <button type="submit">Update</button>
+    </form>
+<p><a href="/view">Go Back</a></p>
+</body>
+</html>
